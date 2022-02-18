@@ -1,12 +1,22 @@
 CREATE TABLE SUCURSALES
    (	
-    	NUM_SUCURSAL VARCHAR(6), 
+    	NUM_SUCURSAL INT(1), 
 	NOMBRE VARCHAR(40), 
 	AREA VARCHAR(35), 
-	TELEFONO VARCHAR(15), 
 	PAIS VARCHAR(25),
 	CONSTRAINT sucursales_pk PRIMARY KEY (NUM_SUCURSAL)
    );
+
+INSERT INTO SUCURSALES VALUES (1, 'Marshall Agency', 'New York', 'EEUU');
+INSERT INTO SUCURSALES VALUES (2, 'Williamson Agency', 'London', 'United Kingdom');
+INSERT INTO SUCURSALES VALUES (3, 'Rahksa Imperial Corporation', 'Mumbai', 'India');
+INSERT INTO SUCURSALES VALUES (4, 'GuruGuru Asociation', 'Bangalore', 'India');
+INSERT INTO SUCURSALES VALUES (5, 'Amen Group', 'San Jose', 'Costa Rica');
+INSERT INTO SUCURSALES VALUES (6, 'Rococheti Agency', 'Torento', 'Italy');
+INSERT INTO SUCURSALES VALUES (7, 'Chennai SL', 'Chennai', 'India');
+INSERT INTO SUCURSALES VALUES (8, 'McTavish Agency', 'Hampshair', 'United Kingdom');
+INSERT INTO SUCURSALES VALUES (9, 'Snake Corp.', 'Brisban', 'Australia');
+
 
 CREATE TABLE AGENTES
    (	
