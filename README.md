@@ -6,6 +6,17 @@
 | Area                  | Cadena de caracteres, 35 | No nulo                   |
 | Pais                  | Cadena de caracteres, 25 | No nulo                   |
 
+### Tabla Directores
+| Directores   |                          |                                    |
+|--------------|--------------------------|------------------------------------|
+| **Código**   | Cadena de caracteres, 6  | Clave Primaria                     |
+| _Sucursal_   | Numérico, 1              | Clave Foranea y única              |
+| Nombre       | Cadena de caracteres, 40 | No nulo                            |
+| Area_Trabajo | Cadena de caracteres, 35 | No nulo                            |
+| Salario      | Decimal, 10,2            | No nulo y por defecto es '4500'    |
+| Teléfono     | Cadena de caracteres, 15 | No nulo y único                    |
+| Pais         | Cadena de caracteres, 25 | No nulo                            |
+
 ### Tabla Agentes
 | Agentes      |                          |                                    |
 |--------------|--------------------------|------------------------------------|
