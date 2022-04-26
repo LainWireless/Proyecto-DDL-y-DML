@@ -19,7 +19,7 @@
 ### Tabla Clientes
 | Clientes         |                          |                                |
 |------------------|--------------------------|--------------------------------|
-| **DNI**          | Cadena de caracteres, 10 | Clave Primaria                 |
+| **Código**       | Cadena de caracteres, 6  | Clave Primaria                 |
 | Nombre           | Cadena de caracteres, 40 | No nulo                        |
 | Ciudad           | Cadena de caracteres, 35 |                                |
 | Area_Trabajo     | Cadena de caracteres, 35 | No nulo                        |
@@ -35,6 +35,6 @@
 | Precio_Pedido      | Decimal, 12,2            | No nulo                      |
 | Señal              | Decimal, 12,2            | No nulo y por defecto será 0 |
 | Fecha_Pedido       | Fecha                    | No nulo y el año no podrá ser menor de 2006|
-| _DNI_Cliente_      | Cadena de caracteres, 10 | Clave Foranea                |
+| _Codigo_Cliente_   | Cadena de caracteres, 6  | Clave Foranea                |
 | _Codigo_Agente_    | Cadena de caracteres, 6  | Clave Foranea                |
 | Descripcion_Pedido | Cadena de caracteres, 60 | No nulo                      |
