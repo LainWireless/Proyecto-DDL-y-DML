@@ -21,11 +21,11 @@
 | Agentes      |                          |                                    |
 |--------------|--------------------------|------------------------------------|
 | **Código**   | Cadena de caracteres, 6  | Clave Primaria                     |
+| _Sucursal_   | Numérico, 1              | Clave Foranea                      |
 | Nombre       | Cadena de caracteres, 40 | No nulo                            |
 | Area_Trabajo | Cadena de caracteres, 35 | No nulo                            |
 | Comision     | Decimal, 10,2            | No nulo y por defecto es '0.10'    |
 | Teléfono     | Cadena de caracteres, 15 | No nulo y único                    |
-| _Sucursal_   | Numérico, 1              | Clave Foranea                      |
 
 ### Tabla Clientes
 | Clientes         |                          |                                |
