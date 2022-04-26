@@ -49,3 +49,56 @@
 | _Codigo_Cliente_   | Cadena de caracteres, 6  | Clave Foranea                |
 | _Codigo_Agente_    | Cadena de caracteres, 6  | Clave Foranea                |
 | Descripcion_Pedido | Cadena de caracteres, 60 | No nulo                      |
+
+----------------------
+
+### Añade las siguientes restricciones una vez hayas creado las tablas:
+- Desactiva temporalmente la restricción que afecta al año de la fecha del pedido
+- Elimina la restricción del valor por defecto que afecta a la señal del pedido
+- Añade una nueva columna a la tabla Sucursales donde guardaremos la fecha en la cual se creó la sucursal
+- Elimina la columna Codigo_Agente de la tabla Clientes
+- Añade una restricción sobre la columna de la fecha de creación de la sucursal, el año no puede ser inferior a 2006
+- Añade una columna llamada DNI a los directores, agentes y clientes
+- Los DNI no se pueden repetir
+- El DNI de los directores, agentes y clientes está compuesto por 8 números y termina por una letra mayúscula
+- Activa nuevamente la restricción que desactivamos referente a la fecha del pedido
+- El código de los directores siempre comenzará por una D mayúscula
+- El código de los agentes siempre comenzará por una A mayúscula
+- El código de los clientes siempre comenzará por una C mayúscula
+
+----------------------
+
+### Consultas sencillas
+- Muestra los nombres de los clientes junto con su nivel
+- Muestra los pedidos cuyo precio sea mayor de 800
+
+### Vistas
+- Crea una vista con los agentes que hayan cerrado más de un pedido junto con el número de pedidos que han cerrado
+
+### Subconsultas
+- Lista todos los agentes junto con el nombre de la sucursal para la que trabajan ordenado alfabéticamente por sucursal
+
+### Combinaciones de tablas
+- Nada por el momento
+
+### Inserción de registros. Consultas de datos anexados
+- Inserta un nuevo agente con código A777, cuyo código de sucursal es 6, llamado Solid Snake, su área de trabajo es Brisban, su comisión es la misma 
+  que la de Iván, su número de teléfono es 008-84444156 y su país es Australia.
+
+### Modificación de registros. Consultas de actualización
+- Actualiza el area en las sucursales cuyo pais sea Italia y el area_trabajo en los directores y agentes cuyo pais sea Italia para que ahora el area/area_trabajo sea Verona en lugar de Torento
+
+### Borrado de registros. Consultas de eliminación.
+- Elimina los pedidos realizados en 2008
+
+### Group by y having.
+- Muestra el nombre y nivel del cliente que más pedidos haya realizado
+
+### Outer joins. Combinaciones externas.
+- Mostrar el nombre de todas las sucursales junto al número de agentes que posee
+
+### Consultas con operadores de conjuntos.
+- Muestra al cliente de nivel 3 que haya hecho el pedido más caro
+
+### Subconsultas correlacionadas.
+- Nada por el momento
