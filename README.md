@@ -76,10 +76,10 @@
 - Crea una vista con los agentes que hayan cerrado más de un pedido junto con el número de pedidos que han cerrado
 
 ### Subconsultas
-- Lista todos los agentes junto con el nombre de la sucursal para la que trabajan ordenado alfabéticamente por sucursal
+- Lista todos los clientes cuyo pais y nivel sean igual al de Steven
 
 ### Combinaciones de tablas
-- Nada por el momento
+- Muestra el nombre de todos los agentes junto con el nombre de la sucursal para la que trabajan ordenado alfabéticamente por sucursal
 
 ### Inserción de registros. Consultas de datos anexados
 - Inserta un nuevo agente con código A777, cuyo código de sucursal es 6, llamado Solid Snake, su área de trabajo es Brisban, su comisión es la misma 
@@ -92,13 +92,13 @@
 - Elimina los pedidos realizados en 2008
 
 ### Group by y having.
-- Muestra el nombre y nivel del cliente que más pedidos haya realizado
+- Muestra el nombre de todos los agentes y lo que ha ganado por cada venta y cuanto ha ganado en total
 
 ### Outer joins. Combinaciones externas.
 - Mostrar el nombre de todas las sucursales junto al número de agentes que posee
 
 ### Consultas con operadores de conjuntos.
-- Muestra al cliente de nivel 3 que haya hecho el pedido más caro
+- Muestra el nombre, numero de sucursal y telefono de los directores y agentes
 
 ### Subconsultas correlacionadas.
-- Nada por el momento
+- Muestra los pedidos cuyo precio son mayores al precio promedio de los pedidos
