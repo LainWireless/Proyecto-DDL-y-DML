@@ -92,7 +92,7 @@
 - Elimina los pedidos realizados en 2008
 
 ### Group by y having.
-- Muestra el nombre de todos los agentes y lo que ha ganado por cada venta y cuanto ha ganado en total
+- Muestra el nombre de todos los agentes y lo que han ganado en total solo si es mayor de 300
 
 ### Outer joins. Combinaciones externas.
 - Mostrar el nombre de todas las sucursales junto al número de agentes que posee
