@@ -8,16 +8,6 @@ CREATE TABLE SUCURSALES
 	CONSTRAINT sucursales_u UNIQUE (NOMBRE)
    );
 
-INSERT INTO SUCURSALES VALUES (1, 'Marshall Agency', 'New York', 'EEUU');
-INSERT INTO SUCURSALES VALUES (2, 'Williamson Agency', 'London', 'United Kingdom');
-INSERT INTO SUCURSALES VALUES (3, 'Rahksa Imperial Corporation', 'Mumbai', 'India');
-INSERT INTO SUCURSALES VALUES (4, 'GuruGuru Asociation', 'Bangalore', 'India');
-INSERT INTO SUCURSALES VALUES (5, 'Amen Group', 'San Jose', 'Costa Rica');
-INSERT INTO SUCURSALES VALUES (6, 'Rococheti Agency', 'Torento', 'Italy');
-INSERT INTO SUCURSALES VALUES (7, 'Chennai SL', 'Chennai', 'India');
-INSERT INTO SUCURSALES VALUES (8, 'McTavish Agency', 'Hampshair', 'United Kingdom');
-INSERT INTO SUCURSALES VALUES (9, 'Snake Corp.', 'Brisban', 'Australia');
-
 CREATE TABLE DIRECTORES
    (	
     	CODIGO VARCHAR(6),
@@ -33,16 +23,6 @@ CREATE TABLE DIRECTORES
 	CONSTRAINT dic_u2 UNIQUE (SUCURSAL)
    );	
 
-INSERT INTO DIRECTORES VALUES ('D001', 1, 'Marshall Robers', 'New York', 6000, '077-48612961', 'EEUU');
-INSERT INTO DIRECTORES VALUES ('D002', 2, 'John Williamson', 'London', 5000, '077-48612964','United Kingdom');
-INSERT INTO DIRECTORES VALUES ('D003', 3, 'Rahksa Gubolo', 'Mumbai', 4500, '077-88612961', 'India');
-INSERT INTO DIRECTORES VALUES ('D004', 4, 'Guru Uroboro', 'Bangalore', 3000, '079-48612961', 'India');
-INSERT INTO DIRECTORES VALUES ('D005', 5, 'Amador Martinez', 'San Jose', 4000, '077-48316961', 'Costa Rica');
-INSERT INTO DIRECTORES VALUES ('D006', 6, 'Rocco Rococheti', 'Torento', 5000, '077-48692061', 'Italy');
-INSERT INTO DIRECTORES VALUES ('D007', 7, 'Chewbacca Darth Vader', 'Chennai', 2500, '067-48612961', 'India');
-INSERT INTO DIRECTORES VALUES ('D008', 8, 'Miranda McTavish', 'Hampshair', 6000, '077-48782961', 'United Kingdom');
-INSERT INTO DIRECTORES VALUES ('D009', 9, 'Hideo Kojima', 'Brisban', 6000, '066-48612961', 'Australia');
-
 CREATE TABLE AGENTES
    (	
     	CODIGO VARCHAR(6),
@@ -56,19 +36,6 @@ CREATE TABLE AGENTES
 	CONSTRAINT agentes_fk FOREIGN KEY (SUCURSAL) REFERENCES SUCURSALES(NUM_SUCURSAL),
 	CONSTRAINT agentes_u UNIQUE (TELEFONO)
    );
-   
-INSERT INTO AGENTES VALUES ('A007', 4, 'Ramasundar', 'Bangalore', 0.15, '077-25814763', 'India');
-INSERT INTO AGENTES VALUES ('A003', 2, 'Alex', 'London', 0.13, '075-12458969', 'United Kingdom');
-INSERT INTO AGENTES VALUES ('A008', 1, 'Alford', 'New York', 0.12, '044-25874365', 'EEUU');
-INSERT INTO AGENTES VALUES ('A011', 4, 'Ravi Kumar', 'Bangalore', 0.15, '077-45625874', 'India');
-INSERT INTO AGENTES VALUES ('A010', 7, 'Santakumar', 'Chennai', 0.14, '007-22388644', 'India');
-INSERT INTO AGENTES VALUES ('A012', 5, 'Lucida', 'San Jose', 0.12, '044-52981425', 'Costa Rica');
-INSERT INTO AGENTES VALUES ('A005', 9, 'Anderson', 'Brisban', 0.13, '045-21447739', 'Australia');
-INSERT INTO AGENTES VALUES ('A001', 4, 'Subbarao', 'Bangalore', 0.14, '077-12346674', 'India');
-INSERT INTO AGENTES VALUES ('A002', 3, 'Mukesh', 'Mumbai', 0.11, '029-12358964', 'India');
-INSERT INTO AGENTES VALUES ('A006', 2, 'McDen', 'London', 0.15, '078-22255588', 'United Kingdom');
-INSERT INTO AGENTES VALUES ('A004', 6, 'Ivan', 'Torento', 0.15, '008-22544166', 'Italy');
-INSERT INTO AGENTES VALUES ('A009', 8, 'Benjamin', 'Hampshair', 0.11, '008-22536178', 'United Kingdom');
 
 CREATE TABLE CLIENTES 
    (	CODIGO VARCHAR(6), 
@@ -84,6 +51,53 @@ CREATE TABLE CLIENTES
     	CONSTRAINT clientes_u UNIQUE (TELEFONO),
     	CONSTRAINT clientes_u2 UNIQUE (NOMBRE)
 );
+
+CREATE TABLE PEDIDOS
+   (
+        NUM_PEDIDO INT(6), 
+	PRECIO_PEDIDO DECIMAL(12,2) NOT NULL, 
+	SEÑAL DECIMAL(12,2) NOT NULL DEFAULT '0', 
+	FECHA_PEDIDO DATE NOT NULL, 
+	CODIGO_CLIENTE VARCHAR(6), 
+	CODIGO_AGENTE VARCHAR(6), 
+	DESCRIPCION_PEDIDO VARCHAR(60) NOT NULL,
+	CONSTRAINT pedidos_pk PRIMARY KEY (NUM_PEDIDO),
+	CONSTRAINT pedidos_fk1 FOREIGN KEY (CODIGO_CLIENTE) REFERENCES CLIENTES(CODIGO),
+	CONSTRAINT pedidos_fk2 FOREIGN KEY (CODIGO_AGENTE) REFERENCES AGENTES(CODIGO)
+   );
+
+INSERT INTO SUCURSALES VALUES (1, 'Marshall Agency', 'New York', 'EEUU');
+INSERT INTO SUCURSALES VALUES (2, 'Williamson Agency', 'London', 'United Kingdom');
+INSERT INTO SUCURSALES VALUES (3, 'Rahksa Imperial Corporation', 'Mumbai', 'India');
+INSERT INTO SUCURSALES VALUES (4, 'GuruGuru Asociation', 'Bangalore', 'India');
+INSERT INTO SUCURSALES VALUES (5, 'Amen Group', 'San Jose', 'Costa Rica');
+INSERT INTO SUCURSALES VALUES (6, 'Rococheti Agency', 'Torento', 'Italy');
+INSERT INTO SUCURSALES VALUES (7, 'Chennai SL', 'Chennai', 'India');
+INSERT INTO SUCURSALES VALUES (8, 'McTavish Agency', 'Hampshair', 'United Kingdom');
+INSERT INTO SUCURSALES VALUES (9, 'Snake Corp.', 'Brisban', 'Australia');
+
+INSERT INTO DIRECTORES VALUES ('D001', 1, 'Marshall Robers', 'New York', 6000, '077-48612961', 'EEUU');
+INSERT INTO DIRECTORES VALUES ('D002', 2, 'John Williamson', 'London', 5000, '077-48612964','United Kingdom');
+INSERT INTO DIRECTORES VALUES ('D003', 3, 'Rahksa Gubolo', 'Mumbai', 4500, '077-88612961', 'India');
+INSERT INTO DIRECTORES VALUES ('D004', 4, 'Guru Uroboro', 'Bangalore', 3000, '079-48612961', 'India');
+INSERT INTO DIRECTORES VALUES ('D005', 5, 'Amador Martinez', 'San Jose', 4000, '077-48316961', 'Costa Rica');
+INSERT INTO DIRECTORES VALUES ('D006', 6, 'Rocco Rococheti', 'Torento', 5000, '077-48692061', 'Italy');
+INSERT INTO DIRECTORES VALUES ('D007', 7, 'Chewbacca Darth Vader', 'Chennai', 2500, '067-48612961', 'India');
+INSERT INTO DIRECTORES VALUES ('D008', 8, 'Miranda McTavish', 'Hampshair', 6000, '077-48782961', 'United Kingdom');
+INSERT INTO DIRECTORES VALUES ('D009', 9, 'Hideo Kojima', 'Brisban', 6000, '066-48612961', 'Australia');
+
+INSERT INTO AGENTES VALUES ('A007', 4, 'Ramasundar', 'Bangalore', 0.15, '077-25814763', 'India');
+INSERT INTO AGENTES VALUES ('A003', 2, 'Alex', 'London', 0.13, '075-12458969', 'United Kingdom');
+INSERT INTO AGENTES VALUES ('A008', 1, 'Alford', 'New York', 0.12, '044-25874365', 'EEUU');
+INSERT INTO AGENTES VALUES ('A011', 4, 'Ravi Kumar', 'Bangalore', 0.15, '077-45625874', 'India');
+INSERT INTO AGENTES VALUES ('A010', 7, 'Santakumar', 'Chennai', 0.14, '007-22388644', 'India');
+INSERT INTO AGENTES VALUES ('A012', 5, 'Lucida', 'San Jose', 0.12, '044-52981425', 'Costa Rica');
+INSERT INTO AGENTES VALUES ('A005', 9, 'Anderson', 'Brisban', 0.13, '045-21447739', 'Australia');
+INSERT INTO AGENTES VALUES ('A001', 4, 'Subbarao', 'Bangalore', 0.14, '077-12346674', 'India');
+INSERT INTO AGENTES VALUES ('A002', 3, 'Mukesh', 'Mumbai', 0.11, '029-12358964', 'India');
+INSERT INTO AGENTES VALUES ('A006', 2, 'McDen', 'London', 0.15, '078-22255588', 'United Kingdom');
+INSERT INTO AGENTES VALUES ('A004', 6, 'Ivan', 'Torento', 0.15, '008-22544166', 'Italy');
+INSERT INTO AGENTES VALUES ('A009', 8, 'Benjamin', 'Hampshair', 0.11, '008-22536178', 'United Kingdom');
 
 INSERT INTO CUSTOMER VALUES ('C00013', 'Holmes', 'London', 'London', 'UK', 2, '0(4082)678-26-08', 'A003');
 INSERT INTO CUSTOMER VALUES ('C00001', 'Micheal', 'New York', 'New York', 'USA', 2, '030(3042)694-42-87', 'A008');
@@ -110,20 +124,6 @@ INSERT INTO CUSTOMER VALUES ('C00009', 'Ramesh', 'Mumbai', 'Mumbai', 'India', 3,
 INSERT INTO CUSTOMER VALUES ('C00014', 'Rangarappa', 'Bangalore', 'Bangalore', 'India', 2, '98(7846)661-72-29', 'A001');
 INSERT INTO CUSTOMER VALUES ('C00016', 'Venkatpati', 'Bangalore', 'Bangalore', 'India', 2, '339(24)156-25-41', 'A007');
 INSERT INTO CUSTOMER VALUES ('C00011', 'Sundariya', 'Chennai', 'Chennai', 'India', 3, '214(073)944-04-15', 'A010');
-
-CREATE TABLE PEDIDOS
-   (
-        NUM_PEDIDO INT(6), 
-	PRECIO_PEDIDO DECIMAL(12,2) NOT NULL, 
-	SEÑAL DECIMAL(12,2) NOT NULL DEFAULT '0', 
-	FECHA_PEDIDO DATE NOT NULL, 
-	CODIGO_CLIENTE VARCHAR(6), 
-	CODIGO_AGENTE VARCHAR(6), 
-	DESCRIPCION_PEDIDO VARCHAR(60) NOT NULL,
-	CONSTRAINT pedidos_pk PRIMARY KEY (NUM_PEDIDO),
-	CONSTRAINT pedidos_fk1 FOREIGN KEY (CODIGO_CLIENTE) REFERENCES CLIENTES(CODIGO),
-	CONSTRAINT pedidos_fk2 FOREIGN KEY (CODIGO_AGENTE) REFERENCES AGENTES(CODIGO)
-   );
 
 INSERT INTO ORDERS VALUES(200100, 1000.00, 600.00, '08/01/2008', 'C00013', 'A003', 'SOD1');
 INSERT INTO ORDERS VALUES(200110, 3000.00, 500.00, '04/15/2008', 'C00019', 'A010', 'SOD2');
