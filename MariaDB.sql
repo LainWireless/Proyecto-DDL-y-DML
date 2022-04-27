@@ -33,6 +33,15 @@ CREATE TABLE DIRECTORES
 	CONSTRAINT dic_u2 UNIQUE (SUCURSAL)
    );	
 
+INSERT INTO DIRECTORES VALUES ('D001', 1, 'Marshall Robers', 'New York', 6000, '077-48612961', 'EEUU');
+INSERT INTO DIRECTORES VALUES ('D002', 2, 'John Williamson', 'London', 5000, '077-48612964','United Kingdom');
+INSERT INTO DIRECTORES VALUES ('D003', 3, 'Rahksa Gubolo', 'Mumbai', 4500, '077-88612961', 'India');
+INSERT INTO DIRECTORES VALUES ('D004', 4, 'Guru Uroboro', 'Bangalore', 3000, '079-48612961', 'India');
+INSERT INTO DIRECTORES VALUES ('D005', 5, 'Amador Martinez', 'San Jose', 4000, '077-48316961', 'Costa Rica');
+INSERT INTO DIRECTORES VALUES ('D006', 6, 'Rocco Rococheti', 'Torento', 5000, '077-48692061', 'Italy');
+INSERT INTO DIRECTORES VALUES ('D007', 7, 'Chewbacca Darth Vader', 'Chennai', 2500, '067-48612961', 'India');
+INSERT INTO DIRECTORES VALUES ('D008', 8, 'Miranda McTavish', 'Hampshair', 6000, '077-48782961', 'United Kingdom');
+INSERT INTO DIRECTORES VALUES ('D009', 9, 'Hideo Kojima', 'Brisban', 6000, '066-48612961', 'Australia');
 
 CREATE TABLE AGENTES
    (	
