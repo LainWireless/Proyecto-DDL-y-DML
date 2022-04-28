@@ -62,13 +62,13 @@ group by s.nombre;
 
 -- Consultas con operadores de conjuntos.
 -- Muestra el nombre, numero de sucursal y telefono de los directores y agentes
-select nombre, num_sucursal, telefono
-from agentes
-where codigo = codigo_agente
+select nombre, sucursal, telefono
+from directores
+order by sucursal
 union
-select nombre, num_sucursal, telefono
+select nombre, sucursal, telefono
 from agentes
-where codigo = codigo_agente;
+order by sucursal;
 
 -- Subconsultas correlacionadas. 
 -- Muestra los pedidos cuyo precio son mayores al precio promedio de los pedidos
