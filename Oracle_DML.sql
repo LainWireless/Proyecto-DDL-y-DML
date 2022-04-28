@@ -37,9 +37,15 @@ from agentes where nombre = 'Ivan';
 
 -- Modificación de registros. Consultas de actualización
 -- Actualiza el area en las sucursales cuyo pais sea Italia y el area_trabajo en los directores y agentes cuyo pais sea Italia para que ahora el area/area_trabajo sea Verona en lugar de Torento
-update sucursales s, directores d, agentes a
-set s.area = 'Verona', d.area_trabajo = 'Verona', a.area_trabajo = 'Verona'
-where s.pais = 'Italy' and d.pais = 'Italy' and a.pais = 'Italy';
+update sucursales
+set area = 'Verona'
+where pais = 'Italy';
+update directores
+set area_trabajo = 'Verona'
+where pais = 'Italy';
+update agentes
+set area_trabajo = 'Verona'
+where pais = 'Italy';
 
 -- Borrado de registros. Consultas de eliminación.
 -- Elimina todos los pedidos realizados en el año 2008
