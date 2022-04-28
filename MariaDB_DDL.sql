@@ -85,7 +85,7 @@ ALTER TABLE sucursales ADD COLUMN FUNDACION DATE;
 ALTER TABLE clientes DROP COLUMN CODIGO_AGENTE;
 
 -- Añade una restricción sobre la columna de la fecha de creación de la sucursal, el año no puede ser inferior a 2006
-ALTER TABLE sucursales ADD CONSTRAINT sucursales_c CHECK (to_char(FUNDACION,'YYYY')=>'06');
+ALTER TABLE sucursales ADD CONSTRAINT sucursales_c CHECK (FUNDACION => '2006-01-01');
 
 --Añade una columna llamada DNI a los directores, agentes y clientes
 ALTER TABLE directores ADD COLUMN DNI VARCHAR(9);
