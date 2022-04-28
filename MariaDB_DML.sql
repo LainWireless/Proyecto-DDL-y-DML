@@ -2,7 +2,7 @@
 -- Muestra los nombres de los clientes junto con su nivel
 select nombre, nivel
 from clientes;
--- Muestra los pedidos cuyo precio sea mayor de 800
+-- Muestra los pedidos cuyo precio sea mayor de 3000
 select num_pedido
 from pedidos
 where precio_pedido > 3000;
