@@ -26,7 +26,7 @@ and nivel = (select nivel from clientes where nombre = 'Albert');
 -- Muestra el nombre de todos los agentes junto con el nombre de la sucursal para la que trabajan ordenado alfabéticamente por sucursal
 select a.nombre, s.nombre
 from agentes a, sucursales s
-where s.sucursal = a.sucursal
+where s.num_sucursal = a.sucursal
 order by s.nombre;
 
 -- Inserción de registros. Consultas de datos anexados
