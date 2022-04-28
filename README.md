@@ -76,7 +76,7 @@
 - Crea una vista con los agentes que hayan cerrado más de un pedido junto con el número de pedidos que han cerrado
 
 ### Subconsultas
-- Lista todos los clientes cuyo pais y nivel sean igual al de Steven
+- Lista todos los clientes cuyo pais sea igual al de Steven y nivel al de Albert
 
 ### Combinaciones de tablas
 - Muestra el nombre de todos los agentes junto con el nombre de la sucursal para la que trabajan ordenado alfabéticamente por sucursal
