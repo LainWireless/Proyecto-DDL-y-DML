@@ -72,6 +72,6 @@ order by sucursal;
 
 -- Subconsultas correlacionadas. 
 -- Muestra los pedidos, el precio y su descripcion cuyo precio son mayores al precio promedio de los pedidos
-select num_pedido, precio_pedido, descripcion
+select num_pedido, precio_pedido, descripcion_pedido
 from pedidos
 where precio_pedido > (select avg(precio_pedido) from pedidos);
