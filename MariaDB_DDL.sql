@@ -73,13 +73,19 @@ CREATE TABLE PEDIDOS
 -- RESTRICCIONES
 
 -- Desactiva temporalmente la restricción que afecta al año de la fecha del pedido
-ALTER TABLE PEDIDOS DISABLE CONSTRAINT pedidos_c;
+-- (En MariaDB no puedes deshabilitar restricciones, solo eliminarlas)
+ALTER TABLE PEDIDOS DROP CONSTRAINT pedidos_c;
+INSERT INTO PEDIDOS VALUES(200163, 1200.00, 400.00, '2005-06-29', 'C00009', 'A002', 'SOD1');
 
 -- Elimina la restricción del valor por defecto que afecta a la señal del pedido
+INSERT INTO PEDIDOS VALUES(200161, 900.99, DEFAULT, '2010-08-26', 'C00012', 'A012', 'SOD3');
 ALTER TABLE Pedidos ALTER COLUMN señal DROP DEFAULT;
+INSERT INTO PEDIDOS VALUES(200171, 900.99, DEFAULT, '2010-08-26', 'C00012', 'A012', 'SOD3');
 
 -- Añade una nueva columna a la tabla Sucursales donde guardaremos la fecha en la cual se creó la sucursal
 ALTER TABLE sucursales ADD COLUMN FUNDACION DATE;
+update sucursales
+set fundacion = '2006-01-01';
 
 -- Elimina la columna Codigo_Agente de la tabla Clientes
 ALTER TABLE clientes DROP COLUMN CODIGO_AGENTE;
@@ -103,7 +109,7 @@ ALTER TABLE agentes ALTER COLUMN DNI ADD CONSTRAINT agentes_dni_check CHECK (DNI
 ALTER TABLE clientes ALTER COLUMN DNI ADD CONSTRAINT clientes_dni_check CHECK (DNI=>'[0-9]{8}[A-Z]');
 
 -- Activa nuevamente la restricción que desactivamos referente a la fecha del pedido
-ALTER TABLE PEDIDOS ENABLE CONSTRAINT pedidos_c;
+ALTER TABLE pedidos ADD CONSTRAINT pedidos_c CHECK (fecha_pedido => '2006-01-01');
 
 -- El código de los directores siempre comenzará por una D mayúscula
 ALTER TABLE directores ALTER COLUMN codigo ADD CONSTRAINT directores_codigo_check CHECK (codigo=>'[D]{1}');
