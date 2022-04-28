@@ -33,12 +33,12 @@ INSERT INTO AGENTES VALUES ('A004', 6, 'Ivan', 'Torento', 0.15, '008-22544166', 
 INSERT INTO AGENTES VALUES ('A009', 8, 'Benjamin', 'Hampshair', 0.11, '008-22536178', 'United Kingdom');
 
 INSERT INTO CLIENTES VALUES ('C00013', 'Holmes', 'London', 'London', 'UK', 2, '0(4082)678-26-08', 'A003');
-INSERT INTO CLIENTES VALUES ('C00001', 'Micheal', 'New York', 'New York', 'USA', 2, '030(3042)694-42-87', 'A008');
+INSERT INTO CLIENTES VALUES ('C00001', 'Micheal', 'New York', 'New York', 'USA', 2, '030-694-42-87', 'A008');
 INSERT INTO CLIENTES VALUES ('C00020', 'Albert', 'New York', 'New York', 'USA', 3,  '8(37)832-65-87', 'A008');
 INSERT INTO CLIENTES VALUES ('C00025', 'Ravindran', 'Bangalore', 'Bangalore', 'India', 2, '77(7607)398-34-25', 'A011');
 INSERT INTO CLIENTES VALUES ('C00024', 'Cook', 'London', 'London', 'UK', 2, '41(3912)519-99-35', 'A006');
-INSERT INTO CLIENTES VALUES ('C00015', 'Stuart', 'London', 'London', 'UK', 1, '348(4273)252-45-89', 'A003');
-INSERT INTO CLIENTES VALUES ('C00002', 'Bolt', 'New York', 'New York', 'USA', 3, '726(5536)368-85-12', 'A008');
+INSERT INTO CLIENTES VALUES ('C00015', 'Stuart', 'London', 'London', 'UK', 1, '348-252-45-89', 'A003');
+INSERT INTO CLIENTES VALUES ('C00002', 'Bolt', 'New York', 'New York', 'USA', 3, '726-368-85-12', 'A008');
 INSERT INTO CLIENTES VALUES ('C00018', 'Fleming', 'Brisban', 'Brisban', 'Australia', 2, '06(800)625-21-58', 'A005');
 INSERT INTO CLIENTES VALUES ('C00021', 'Jacks', 'Brisban', 'Brisban', 'Australia', 1, '72(2266)518-65-91', 'A005');
 INSERT INTO CLIENTES VALUES ('C00019', 'Yearannaidu', 'Chennai', 'Chennai', 'India', 1, '746(00)546-32-15', 'A010');
@@ -46,10 +46,10 @@ INSERT INTO CLIENTES VALUES ('C00005', 'Sasikant', 'Mumbai', 'Mumbai', 'India', 
 INSERT INTO CLIENTES VALUES ('C00007', 'Ramanathan', 'Chennai', 'Chennai', 'India', 1, '0(1218)929-68-74', 'A010');
 INSERT INTO CLIENTES VALUES ('C00022', 'Avinash', 'Mumbai', 'Mumbai', 'India', 2, '113-12345678','A002');
 INSERT INTO CLIENTES VALUES ('C00004', 'Winston', 'Brisban', 'Brisban', 'Australia', 1, '5(93)011-30-96', 'A005');
-INSERT INTO CLIENTES VALUES ('C00023', 'Karl', 'London', 'London', 'UK', 0, '4000.00', '55(13)149-40-16', 'A006');
-INSERT INTO CLIENTES VALUES ('C00006', 'Shilton', 'Torento', 'Torento', 'Canada', 1,  '04(51)515-16-14', 'A004');
-INSERT INTO CLIENTES VALUES ('C00010', 'Charles', 'Hampshair', 'Hampshair', 'UK', 3, '304(6700)250-76-23', 'A009');
-INSERT INTO CLIENTES VALUES ('C00017', 'Srinivas', 'Bangalore', 'Bangalore', 'India', 2, '3(5991)165-78-06', 'A007');
+INSERT INTO CLIENTES VALUES ('C00023', 'Karl', 'London', 'London', 'UK', 0, '149-40-16', 'A006');
+INSERT INTO CLIENTES VALUES ('C00006', 'Shilton', 'Torento', 'Torento', 'Canada', 1,  '515-16-14', 'A004');
+INSERT INTO CLIENTES VALUES ('C00010', 'Charles', 'Hampshair', 'Hampshair', 'UK', 3, '304-250-76-23', 'A009');
+INSERT INTO CLIENTES VALUES ('C00017', 'Srinivas', 'Bangalore', 'Bangalore', 'India', 2, '3165-78-06', 'A007');
 INSERT INTO CLIENTES VALUES ('C00012', 'Steven', 'San Jose', 'San Jose', 'USA', 1, '1(08)089-34-00', 'A012');
 INSERT INTO CLIENTES VALUES ('C00008', 'Karolina', 'Torento', 'Torento', 'Canada', 1, '21(2994)811-00-88', 'A004');
 INSERT INTO CLIENTES VALUES ('C00003', 'Martin', 'Torento', 'Torento', 'Canada', 2, '345(94)963-54-68', 'A004');
