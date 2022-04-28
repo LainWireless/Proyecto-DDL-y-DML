@@ -16,11 +16,11 @@ where a.codigo = p.codigo_agente
 group by a.nombre;
 
 -- Subconsultas
--- Lista todos los clientes cuyo pais y nivel sean igual al de Steven
+-- Lista todos los clientes cuyo pais sea igual al de Steven y nivel igual al de Albert
 select nombre
 from clientes
 where pais = (select pais from clientes where nombre = 'Steven')
-and nivel = (select nivel from clientes where nombre = 'Steven');
+and nivel = (select nivel from clientes where nombre = 'Albert');
 
 -- Combinaciones de tablas
 -- Muestra el nombre de todos los agentes junto con el nombre de la sucursal para la que trabajan ordenado alfabéticamente por sucursal
