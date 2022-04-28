@@ -75,29 +75,29 @@ CREATE TABLE PEDIDOS
 
 -- Desactiva temporalmente la restricción que afecta al año de la fecha del pedido
 ALTER TABLE PEDIDOS DISABLE CONSTRAINT pedidos_c;
-INSERT INTO PEDIDOS VALUES(200163, 1200.00, 400.00, '2005-06-29', 'C00009', 'A002', 'SOD1');
+INSERT INTO PEDIDOS VALUES(200163, 1200.00, 400.00, TO_DATE('2005-06-29', 'yyyy/mm/dd'), 'C00009', 'A002', 'SOD1');
 
 -- Elimina la restricción del valor por defecto que afecta a la señal del pedido
-INSERT INTO PEDIDOS VALUES(200161, 900.99, DEFAULT, '2010-08-26', 'C00012', 'A012', 'SOD3');
-ALTER TABLE Pedidos ALTER COLUMN señal DROP DEFAULT;
-INSERT INTO PEDIDOS VALUES(200171, 900.99, DEFAULT, '2010-08-26', 'C00012', 'A012', 'SOD3');
+INSERT INTO PEDIDOS VALUES(200161, 900.99, DEFAULT, TO_DATE('2007-06-29', 'yyyy/mm/dd'), 'C00012', 'A012', 'SOD3');
+ALTER TABLE pedidos MODIFY (senal NUMBER(12,2) DEFAULT NULL);
+INSERT INTO PEDIDOS VALUES(200181, 900.99, DEFAULT, TO_DATE('2007-06-29', 'yyyy/mm/dd'), 'C00012', 'A012', 'SOD3');
 
 -- Añade una nueva columna a la tabla Sucursales donde guardaremos la fecha en la cual se creó la sucursal
-ALTER TABLE sucursales ADD COLUMN FUNDACION DATE;
+ALTER TABLE sucursales ADD (FUNDACION DATE);
 update sucursales
-set fundacion = '2006-01-01';
+set fundacion = to_date('2006-01-01', 'yyyy/mm/dd');
 
 -- Elimina la columna Codigo_Agente de la tabla Clientes
 ALTER TABLE clientes DROP CONSTRAINT clientes_fk;
 ALTER TABLE clientes DROP COLUMN CODIGO_AGENTE;
 
 -- Añade una restricción sobre la columna de la fecha de creación de la sucursal, el año no puede ser inferior a 2006
-ALTER TABLE sucursales ADD CONSTRAINT sucursales_c CHECK (to_char(fundacion,'YYYY') >= '2006-01-01');
+ALTER TABLE sucursales ADD CONSTRAINT sucursales_c CHECK (to_char(fundacion,'YYYY-MM-DD') >= '2006-01-01');
 
 --Añade una columna llamada DNI a los directores, agentes y clientes. Los DNI deben ser únicos.
-ALTER TABLE directores ADD COLUMN DNI VARCHAR(9) UNIQUE;
-ALTER TABLE agentes ADD COLUMN DNI VARCHAR(9) UNIQUE;
-ALTER TABLE clientes ADD COLUMN DNI VARCHAR(9) UNIQUE;
+ALTER TABLE directores ADD (DNI VARCHAR(9) UNIQUE);
+ALTER TABLE agentes ADD (DNI VARCHAR(9) UNIQUE);
+ALTER TABLE clientes ADD (DNI VARCHAR(9) UNIQUE);
 
 -- El DNI de los directores, agentes y clientes está compuesto por 8 números y termina por una letra mayúscula
 ALTER TABLE directores ALTER COLUMN DNI ADD CONSTRAINT directores_dni_check CHECK (DNI >= '[0-9]{8}[A-Z]');
