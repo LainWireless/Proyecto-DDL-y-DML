@@ -26,6 +26,7 @@
 | Area_Trabajo | Cadena de caracteres, 35 | No nulo                            |
 | Comision     | Decimal, 10,2            | No nulo y por defecto es '0.10'    |
 | Teléfono     | Cadena de caracteres, 15 | No nulo y único                    |
+| Pais         | Cadena de caracteres, 20 | No nulo                            |
 
 ### Tabla Clientes
 | Clientes         |                          |                                |
