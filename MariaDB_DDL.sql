@@ -100,18 +100,18 @@ ALTER TABLE agentes ADD COLUMN DNI VARCHAR(9) UNIQUE;
 ALTER TABLE clientes ADD COLUMN DNI VARCHAR(9) UNIQUE;
 
 -- El DNI de los directores, agentes y clientes está compuesto por 8 números y termina por una letra mayúscula
-ALTER TABLE directores ALTER COLUMN DNI ADD CONSTRAINT directores_dni_check CHECK (DNI=>'[0-9]{8}[A-Z]');
-ALTER TABLE agentes ALTER COLUMN DNI ADD CONSTRAINT agentes_dni_check CHECK (DNI=>'[0-9]{8}[A-Z]');
-ALTER TABLE clientes ALTER COLUMN DNI ADD CONSTRAINT clientes_dni_check CHECK (DNI=>'[0-9]{8}[A-Z]');
+ALTER TABLE directores ALTER COLUMN DNI ADD CONSTRAINT directores_dni_check CHECK (DNI >= '[0-9]{8}[A-Z]');
+ALTER TABLE agentes ALTER COLUMN DNI ADD CONSTRAINT agentes_dni_check CHECK (DNI >= '[0-9]{8}[A-Z]');
+ALTER TABLE clientes ALTER COLUMN DNI ADD CONSTRAINT clientes_dni_check CHECK (DNI >= '[0-9]{8}[A-Z]');
 
 -- Activa nuevamente la restricción que desactivamos referente a la fecha del pedido
 ALTER TABLE pedidos ADD CONSTRAINT pedidos_c CHECK (fecha_pedido >= '2006-01-01');
 
 -- El código de los directores siempre comenzará por una D mayúscula
-ALTER TABLE directores ALTER COLUMN codigo ADD CONSTRAINT directores_codigo_check CHECK (codigo=>'[D]{1}');
+ALTER TABLE directores ALTER COLUMN codigo ADD CONSTRAINT directores_codigo_check CHECK (codigo >= '[D]{1}');
 
 -- El código de los agentes siempre comenzará por una A mayúscula
-ALTER TABLE agentes ALTER COLUMN codigo ADD CONSTRAINT agentes_codigo_check CHECK (codigo=>'[A]{1}');
+ALTER TABLE agentes ALTER COLUMN codigo ADD CONSTRAINT agentes_codigo_check CHECK (codigo >='[A]{1}');
 
 -- El código de los clientes siempre comenzará por una C mayúscula
-ALTER TABLE clientes ALTER COLUMN codigo ADD CONSTRAINT clientes_codigo_check CHECK (codigo=>'[C]{1}');
+ALTER TABLE clientes ALTER COLUMN codigo ADD CONSTRAINT clientes_codigo_check CHECK (codigo >='[C]{1}');
