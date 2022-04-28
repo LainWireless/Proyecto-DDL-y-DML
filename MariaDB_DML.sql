@@ -31,7 +31,9 @@ order by s.nombre;
 
 -- Inserción de registros. Consultas de datos anexados
 -- Inserta un nuevo agente con código A777, cuyo código de sucursal es 6, llamado Solid Snake, su área de trabajo es Brisban, su comisión es la misma que la de Iván, su número de teléfono es 008-84444156 y su país es Australia
-insert into agentes values ('A777', 6, 'Solid Snake', 'Brisban', (select comision from agentes where nombre = 'Iván'), '008-84444156', 'Australia');
+insert into agentes (codigo, sucursal, nombre, area_trabajo, comision, telefono) 
+select 'A777', 6, 'Solid Snake', 'Brisban', comision, '008-84444156', 'Australia' 
+from agentes where nombre = 'Iván';
 
 -- Modificación de registros. Consultas de actualización
 -- Actualiza el area en las sucursales cuyo pais sea Italia y el area_trabajo en los directores y agentes cuyo pais sea Italia para que ahora el area/area_trabajo sea Verona en lugar de Torento
