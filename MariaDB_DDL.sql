@@ -94,15 +94,10 @@ ALTER TABLE clientes DROP COLUMN CODIGO_AGENTE;
 -- Añade una restricción sobre la columna de la fecha de creación de la sucursal, el año no puede ser inferior a 2006
 ALTER TABLE sucursales ADD CONSTRAINT sucursales_c CHECK (FUNDACION >= '2006-01-01');
 
---Añade una columna llamada DNI a los directores, agentes y clientes
-ALTER TABLE directores ADD COLUMN DNI VARCHAR(9);
-ALTER TABLE agentes ADD COLUMN DNI VARCHAR(9);
-ALTER TABLE clientes ADD COLUMN DNI VARCHAR(9);
-
--- Los DNI no se pueden repetir
-ALTER TABLE directores ALTER COLUMN DNI ADD CONSTRAINT directores_u UNIQUE;
-ALTER TABLE agentes ALTER COLUMN DNI ADD CONSTRAINT agentes_u UNIQUE;
-ALTER TABLE clientes ALTER COLUMN DNI ADD CONSTRAINT clientes_u UNIQUE;
+--Añade una columna llamada DNI a los directores, agentes y clientes. Los DNI deben ser únicos.
+ALTER TABLE directores ADD COLUMN DNI VARCHAR(9) UNIQUE;
+ALTER TABLE agentes ADD COLUMN DNI VARCHAR(9) UNIQUE;
+ALTER TABLE clientes ADD COLUMN DNI VARCHAR(9) UNIQUE;
 
 -- El DNI de los directores, agentes y clientes está compuesto por 8 números y termina por una letra mayúscula
 ALTER TABLE directores ALTER COLUMN DNI ADD CONSTRAINT directores_dni_check CHECK (DNI=>'[0-9]{8}[A-Z]');
