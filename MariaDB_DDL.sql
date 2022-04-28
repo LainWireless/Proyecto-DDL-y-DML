@@ -88,10 +88,11 @@ update sucursales
 set fundacion = '2006-01-01';
 
 -- Elimina la columna Codigo_Agente de la tabla Clientes
+ALTER TABLE clientes DROP CONSTRAINT clientes_fk;
 ALTER TABLE clientes DROP COLUMN CODIGO_AGENTE;
 
 -- Añade una restricción sobre la columna de la fecha de creación de la sucursal, el año no puede ser inferior a 2006
-ALTER TABLE sucursales ADD CONSTRAINT sucursales_c CHECK (FUNDACION => '2006-01-01');
+ALTER TABLE sucursales ADD CONSTRAINT sucursales_c CHECK (FUNDACION >= '2006-01-01');
 
 --Añade una columna llamada DNI a los directores, agentes y clientes
 ALTER TABLE directores ADD COLUMN DNI VARCHAR(9);
@@ -109,7 +110,7 @@ ALTER TABLE agentes ALTER COLUMN DNI ADD CONSTRAINT agentes_dni_check CHECK (DNI
 ALTER TABLE clientes ALTER COLUMN DNI ADD CONSTRAINT clientes_dni_check CHECK (DNI=>'[0-9]{8}[A-Z]');
 
 -- Activa nuevamente la restricción que desactivamos referente a la fecha del pedido
-ALTER TABLE pedidos ADD CONSTRAINT pedidos_c CHECK (fecha_pedido => '2006-01-01');
+ALTER TABLE pedidos ADD CONSTRAINT pedidos_c CHECK (fecha_pedido >= '2006-01-01');
 
 -- El código de los directores siempre comenzará por una D mayúscula
 ALTER TABLE directores ALTER COLUMN codigo ADD CONSTRAINT directores_codigo_check CHECK (codigo=>'[D]{1}');
