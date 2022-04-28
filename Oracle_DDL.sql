@@ -108,10 +108,10 @@ ALTER TABLE clientes ADD CONSTRAINT clientes_dni_check CHECK (DNI >= '^[0-9]{8}[
 ALTER TABLE pedidos ENABLE CONSTRAINT pedidos_c;
 
 -- El código de los directores siempre comenzará por una D mayúscula
-ALTER TABLE directores ALTER COLUMN codigo ADD CONSTRAINT directores_codigo_check CHECK (codigo >= '[D]{1}');
+ALTER TABLE directores ADD CONSTRAINT directores_codigo_check CHECK (codigo >= '[D]{1}');
 
 -- El código de los agentes siempre comenzará por una A mayúscula
-ALTER TABLE agentes ALTER COLUMN codigo ADD CONSTRAINT agentes_codigo_check CHECK (codigo >='[A]{1}');
+ALTER TABLE agentes ADD CONSTRAINT agentes_codigo_check CHECK (codigo >='[A]{1}');
 
 -- El código de los clientes siempre comenzará por una C mayúscula
-ALTER TABLE clientes ALTER COLUMN codigo ADD CONSTRAINT clientes_codigo_check CHECK (codigo >='[C]{1}');
+ALTER TABLE clientes ADD CONSTRAINT clientes_codigo_check CHECK (codigo >='[C]{1}');
