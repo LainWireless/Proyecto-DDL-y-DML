@@ -100,9 +100,9 @@ ALTER TABLE agentes ADD (DNI VARCHAR(9) UNIQUE);
 ALTER TABLE clientes ADD (DNI VARCHAR(9) UNIQUE);
 
 -- El DNI de los directores, agentes y clientes está compuesto por 8 números y termina por una letra mayúscula
-ALTER TABLE directores ALTER COLUMN DNI ADD CONSTRAINT directores_dni_check CHECK (DNI >= '[0-9]{8}[A-Z]');
-ALTER TABLE agentes ALTER COLUMN DNI ADD CONSTRAINT agentes_dni_check CHECK (DNI >= '[0-9]{8}[A-Z]');
-ALTER TABLE clientes ALTER COLUMN DNI ADD CONSTRAINT clientes_dni_check CHECK (DNI >= '[0-9]{8}[A-Z]');
+ALTER TABLE directores ADD CONSTRAINT directores_dni_check CHECK (DNI >= '[0-9]{8}[A-Z]');
+ALTER TABLE agentes ADD CONSTRAINT agentes_dni_check CHECK (DNI >= '[0-9]{8}[A-Z]');
+ALTER TABLE clientes ADD CONSTRAINT clientes_dni_check CHECK (DNI >= '[0-9]{8}[A-Z]');
 
 -- Activa nuevamente la restricción que desactivamos referente a la fecha del pedido
 ALTER TABLE pedidos ENABLE CONSTRAINT pedidos_c;
