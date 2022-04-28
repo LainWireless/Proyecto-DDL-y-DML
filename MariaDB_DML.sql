@@ -5,7 +5,7 @@ from clientes;
 -- Muestra los pedidos cuyo precio sea mayor de 800
 select num_pedido
 from pedidos
-where precio_pedido > 800;
+where precio_pedido > 3000;
 
 -- Vistas
 -- Crea una vista con los agentes que hayan cerrado más de un pedido junto con el número de pedidos que han cerrado
