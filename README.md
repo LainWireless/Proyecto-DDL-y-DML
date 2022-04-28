@@ -70,7 +70,7 @@
 
 ### Consultas sencillas
 - Muestra los nombres de los clientes junto con su nivel
-- Muestra los pedidos cuyo precio sea mayor de 800
+- Muestra los pedidos cuyo precio sea mayor de 3000
 
 ### Vistas
 - Crea una vista con los agentes que hayan cerrado más de un pedido junto con el número de pedidos que han cerrado
