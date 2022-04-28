@@ -57,7 +57,7 @@ having sum(p.precio_pedido * a.comision) > 300;
 -- Outer joins. Combinaciones externas.
 -- Mostrar el nombre de todas las sucursales junto al número de agentes que posee
 select s.nombre, count(*) as agentes
-from sucursales s left join agentes a on s.codigo_agente = a.codigo
+from sucursales s left join agentes a on s.num_sucursal = a.sucursal
 group by s.nombre;
 
 -- Consultas con operadores de conjuntos.
