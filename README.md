@@ -102,4 +102,4 @@
 - Muestra el nombre, numero de sucursal y telefono de los directores y agentes
 
 ### Subconsultas correlacionadas.
-- Muestra los pedidos cuyo precio son mayores al precio promedio de los pedidos
+- Muestra los pedidos, su precio y su descripcion cuyo precio son mayores al precio promedio de los pedidos
