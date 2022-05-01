@@ -71,7 +71,6 @@ group by s.nombre;
 -- Muestra el nombre, numero de sucursal y telefono de los directores y agentes
 select nombre, sucursal, telefono
 from directores
-order by sucursal
 union
 select nombre, sucursal, telefono
 from agentes
@@ -82,3 +81,13 @@ order by sucursal;
 select num_pedido, precio_pedido, descripcion_pedido
 from pedidos
 where precio_pedido > (select avg(precio_pedido) from pedidos);
+
+-- Consulta que incluya varios tipos de los indicados anteriormente.
+-- Crea una vista con el nombre de todos los agentes que mínimo han cerrado un pedido, lo que han ganado en total y el total de producos vendidos
+create or replace view vista_ganancias as
+select a.nombre, sum(p.precio_pedido * a.comision) as total_ganancias, count(p.num_pedido) as pedidos_cerrados
+from agentes a, pedidos p
+where a.codigo = p.codigo_agente
+group by a.nombre
+having count(p.num_pedido) > 0;
+
