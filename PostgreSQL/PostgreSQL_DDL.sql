@@ -75,7 +75,8 @@ CREATE TABLE PEDIDOS
 -- RESTRICCIONES
 
 -- Desactiva temporalmente la restricción que afecta al año de la fecha del pedido
-ALTER TABLE PEDIDOS DISABLE CONSTRAINT pedidos_c;
+-- (En Postgre no puedes deshabilitar restricciones, solo eliminarlas)
+ALTER TABLE PEDIDOS DROP CONSTRAINT pedidos_c;
 INSERT INTO PEDIDOS VALUES(200163, 1200.00, 400.00, TO_DATE('2005-06-29', 'yyyy/mm/dd'), 'C00009', 'A002', 'SOD1');
 
 -- Elimina la restricción del valor por defecto que afecta a la señal del pedido
@@ -106,7 +107,7 @@ ALTER TABLE agentes ADD CONSTRAINT agentes_dni_check CHECK (DNI >= '^[0-9]{8}[A-
 ALTER TABLE clientes ADD CONSTRAINT clientes_dni_check CHECK (DNI >= '^[0-9]{8}[A-Z]{1}$');
 
 -- Activa nuevamente la restricción que desactivamos referente a la fecha del pedido
-ALTER TABLE pedidos ENABLE CONSTRAINT pedidos_c;
+ALTER TABLE pedidos ADD CONSTRAINT pedidos_c CHECK (to_char(fecha_pedido,'YYYY-MM-DD') >= '2006-01-01');
 
 -- El código de los directores siempre comenzará por una D mayúscula
 ALTER TABLE directores ADD CONSTRAINT directores_codigo_check CHECK (codigo >= '[D]{1}');
