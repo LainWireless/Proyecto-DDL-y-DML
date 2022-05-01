@@ -79,7 +79,7 @@ CREATE TABLE PEDIDOS
 ALTER TABLE PEDIDOS DROP CONSTRAINT pedidos_c;
 INSERT INTO PEDIDOS VALUES(200163, 1200.00, 400.00, TO_DATE('2005-06-29', 'yyyy/mm/dd'), 'C00009', 'A002', 'SOD1');
 
--- Elimina la restricción del valor por defecto que afecta a la señal del pedido
+-- Elimina la restricción del valor por defecto que afecta a la senal del pedido
 INSERT INTO PEDIDOS VALUES(200161, 900.99, DEFAULT, TO_DATE('2007-06-29', 'yyyy/mm/dd'), 'C00012', 'A012', 'SOD3');
 ALTER TABLE Pedidos ALTER COLUMN señal DROP DEFAULT;
 INSERT INTO PEDIDOS VALUES(200181, 900.99, DEFAULT, TO_DATE('2007-06-29', 'yyyy/mm/dd'), 'C00012', 'A012', 'SOD3');
