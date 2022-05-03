@@ -103,3 +103,6 @@
 
 ### Subconsultas correlacionadas.
 - Muestra los pedidos, su precio y su descripcion cuyo precio son mayores al precio promedio de los pedidos
+
+### Consulta que incluya varios tipos de los indicados anteriormente.
+- Crea una vista con el nombre de todos los agentes que mínimo han cerrado un pedido, lo que han ganado en total y el total de producos vendidos
